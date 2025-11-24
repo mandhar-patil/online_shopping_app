@@ -37,7 +37,7 @@ phases:
       - echo "Pushing the Docker image to Docker Hub..."
       - docker push $IMAGE_NAME:latest
       - echo "Uploading zip file to S3..."
-      - aws s3 cp online-shop-app.zip s3://tws-online-shop-demo/online-shop-app/
+      - aws s3 cp online-shop-app.zip s3://my-codepipeline-artifacts12/online-shop-app-build
       - echo "Writing image definitions file..."
       - printf '{"ImageURI":"%s", "Port":8000}' $IMAGE_NAME:latest > imageDefinitions.json
       - cat imageDefinitions.json
